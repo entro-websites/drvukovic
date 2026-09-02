@@ -149,13 +149,13 @@
     gap: 32px;
   }
 
-  .nav-menu a {
+  .nav-menu a:not(.btn) {
     font-size: 15px;
     font-weight: 500;
     color: var(--dark);
   }
 
-  .nav-menu a:hover {
+  .nav-menu a:not(.btn):hover {
     color: var(--primary);
   }
 
@@ -216,7 +216,7 @@
       display: flex;
     }
 
-    .nav-menu a {
+    .nav-menu a:not(.btn) {
       width: 100%;
       padding: 12px 4px;
       border-bottom: 1px solid var(--border);
@@ -226,7 +226,6 @@
       margin-top: 16px;
       width: 100%;
       text-align: center;
-      border-bottom: none;
     }
   }
 
@@ -270,20 +269,71 @@
     margin-bottom: 32px;
   }
 
-  .hero .btn-primary {
-    align-self: flex-start;
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
   }
 
-  .hero-note {
+  .hero .btn-outline {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.32);
+  }
+
+  .hero .btn-outline:hover {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    color: var(--dark);
+  }
+
+  .hero-people {
+    display: flex;
+    align-items: center;
+    gap: 16px;
     margin-top: auto;
     padding-top: 56px;
+  }
+
+  .hero-avatars {
+    display: flex;
+    flex-shrink: 0;
+  }
+
+  .hero-avatars span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    margin-left: -10px;
+    border: 2px solid var(--dark);
+    border-radius: 50%;
+    background-color: var(--primary);
+  }
+
+  .hero-avatars span:first-child {
+    margin-left: 0;
+  }
+
+  .hero-avatars svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .hero p.hero-note {
+    margin-bottom: 0;
     font-size: 12px;
     font-weight: 500;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.45);
-    max-width: 44ch;
+    max-width: 36ch;
   }
 
   .hero-photo {
@@ -373,10 +423,9 @@
       font-size: 40px;
     }
 
-    .hero-note {
+    .hero-people {
       margin-top: 0;
       padding-top: 40px;
-      max-width: 100%;
     }
 
     .hero-photo {
@@ -886,6 +935,90 @@
     }
   }
 
+  /* CTA */
+  .cta-section {
+    padding-top: 96px;
+    padding-bottom: 96px;
+  }
+
+  .cta-box {
+    background-color: var(--dark);
+    border-radius: 24px;
+    padding: 72px 40px;
+    text-align: center;
+  }
+
+  .cta-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 999px;
+    padding: 6px 16px 6px 6px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.72);
+    margin-bottom: 24px;
+  }
+
+  .cta-badge strong {
+    border-radius: 999px;
+    background-color: var(--primary);
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  .cta-box h2 {
+    font-size: 40px;
+    line-height: 1.15;
+    color: #ffffff;
+    margin-bottom: 16px;
+  }
+
+  .cta-box h2 em {
+    font-style: normal;
+    color: #c98fd4;
+  }
+
+  .cta-box p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 52ch;
+    margin: 0 auto 32px auto;
+  }
+
+  @media (max-width: 991px) {
+    .cta-section {
+      padding-top: 64px;
+      padding-bottom: 64px;
+    }
+
+    .cta-box {
+      padding: 56px 28px;
+    }
+
+    .cta-box h2 {
+      font-size: 32px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .cta-box {
+      border-radius: 16px;
+      padding: 40px 20px;
+    }
+
+    .cta-box h2 {
+      font-size: 26px;
+    }
+
+    .cta-badge {
+      font-size: 12px;
+    }
+  }
+
   /* CONTACT */
   .contact-inner {
     display: grid;
@@ -991,7 +1124,6 @@
 
   .contact-form .btn {
     width: 100%;
-    border: none;
   }
 
   @media (max-width: 900px) {
@@ -1090,8 +1222,14 @@
         <div class="hero-copy">
           <h1>Preko 30 godina brige za <em>osmehe</em> u Kraljevu</h1>
           <p>Radim opštu i dečiju stomatologiju i protetiku, u ordinaciji u centru Kraljeva. Dođite na pregled, kažem vam šta vidim i šta predlažem, a vi odlučujete.</p>
-          <a href="#kontakt" class="btn btn-primary">Zakažite pregled</a>
-          <p class="hero-note">Kroz ordinaciju je prošlo nekoliko generacija iste porodice, od mlečnih zuba do protetike</p>
+          <div class="hero-actions">
+            <a href="#kontakt" class="btn btn-primary">Zakažite pregled</a>
+            <a href="tel:036331482" class="btn btn-outline">Pozovite nas</a>
+          </div>
+          <div class="hero-people">
+            <div class="hero-avatars"><span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="3.5"></circle><path d="M5.5 20c0-3.3 2.9-5 6.5-5s6.5 1.7 6.5 5"></path></svg></span><span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="3.5"></circle><path d="M5.5 20c0-3.3 2.9-5 6.5-5s6.5 1.7 6.5 5"></path></svg></span><span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="3.5"></circle><path d="M5.5 20c0-3.3 2.9-5 6.5-5s6.5 1.7 6.5 5"></path></svg></span><span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="3.5"></circle><path d="M5.5 20c0-3.3 2.9-5 6.5-5s6.5 1.7 6.5 5"></path></svg></span></div>
+            <p class="hero-note">Generacije iste porodice, od mlečnih zuba do protetike</p>
+          </div>
         </div>
 
         <div class="hero-photo">
@@ -1276,6 +1414,20 @@
             <div class="stat-value">3</div>
             <div class="stat-name">godine, uzrast kada deca prvi put dolaze</div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section" id="zakazivanje">
+      <div class="container">
+        <div class="cta-box">
+          <span class="cta-badge">
+            <strong>Termin</strong>
+            Pozovete, dogovorimo termin, dođete
+          </span>
+          <h2>Napravite prvi korak ka <em>zdravom osmehu</em></h2>
+          <p>Javite se telefonom ili porukom, dogovorimo termin koji vam odgovara i vidimo se u ordinaciji u centru Kraljeva.</p>
+          <a href="#kontakt" class="btn btn-primary">Zakažite pregled</a>
         </div>
       </div>
     </section>
