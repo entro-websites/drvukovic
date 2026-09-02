@@ -231,67 +231,30 @@
 
   /* HERO */
   .hero {
-    background-color: var(--dark);
+    background-color: var(--bg-alt);
   }
 
   .hero-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-    align-items: stretch;
-    padding-top: 56px;
-    padding-bottom: 56px;
-  }
-
-  .hero-copy {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding-right: 24px;
-  }
-
-  .hero h1 {
-    font-size: 52px;
-    line-height: 1.1;
-    color: #ffffff;
-    margin-bottom: 20px;
-  }
-
-  .hero h1 em {
-    font-style: normal;
-    color: #c98fd4;
-  }
-
-  .hero p {
-    font-size: 16px;
-    color: rgba(255, 255, 255, 0.72);
-    max-width: 46ch;
-    margin-bottom: 32px;
-  }
-
-  .hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-
-  .hero .btn-outline {
-    color: #ffffff;
-    border-color: rgba(255, 255, 255, 0.32);
-  }
-
-  .hero .btn-outline:hover {
-    background-color: #ffffff;
-    border-color: #ffffff;
-    color: var(--dark);
-  }
-
-  .hero-people {
-    display: flex;
     align-items: center;
-    gap: 16px;
-    margin-top: auto;
-    padding-top: 56px;
+    text-align: center;
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background-color: #ffffff;
+    padding: 6px 20px 6px 6px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray);
+    margin-bottom: 32px;
   }
 
   .hero-avatars {
@@ -303,10 +266,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
-    margin-left: -10px;
-    border: 2px solid var(--dark);
+    width: 28px;
+    height: 28px;
+    margin-left: -8px;
+    border: 2px solid #ffffff;
     border-radius: 50%;
     background-color: var(--primary);
   }
@@ -316,8 +279,8 @@
   }
 
   .hero-avatars svg {
-    width: 18px;
-    height: 18px;
+    width: 14px;
+    height: 14px;
     fill: none;
     stroke: #ffffff;
     stroke-width: 2;
@@ -325,135 +288,75 @@
     stroke-linejoin: round;
   }
 
-  .hero p.hero-note {
-    margin-bottom: 0;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.45);
-    max-width: 36ch;
+  .hero h1 {
+    font-size: 56px;
+    line-height: 1.12;
+    max-width: 800px;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 em {
+    display: block;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--gray-light);
+  }
+
+  .hero p {
+    font-size: 16px;
+    max-width: 60ch;
+    margin-bottom: 32px;
   }
 
   .hero-photo {
-    position: relative;
+    width: 100%;
+    margin-top: 64px;
     border-radius: 24px;
     overflow: hidden;
-    min-height: 520px;
   }
 
   .hero-photo img {
-    position: absolute;
-    inset: 0;
     width: 100%;
-    height: 100%;
+    height: 420px;
     object-fit: cover;
-  }
-
-  .hero-photo::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to bottom,
-      rgba(34, 31, 36, 0.50) 0%,
-      rgba(34, 31, 36, 0.32) 45%,
-      rgba(34, 31, 36, 0.60) 100%
-    );
-  }
-
-  .hero-badge {
-    position: absolute;
-    z-index: 2;
-    top: 32px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    border-radius: 999px;
-    background-color: var(--primary);
-    padding: 8px 18px;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    white-space: nowrap;
-    color: #ffffff;
-  }
-
-  .hero-badge svg {
-    width: 14px;
-    height: 14px;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-
-  .hero-figure {
-    position: absolute;
-    z-index: 2;
-    top: 42%;
-    left: 0;
-    right: 0;
-    transform: translateY(-50%);
-    text-align: center;
-    font-size: 96px;
-    font-weight: 700;
-    line-height: 1;
-    color: #ffffff;
   }
 
   @media (max-width: 991px) {
     .hero-inner {
-      grid-template-columns: 1fr;
-      gap: 40px;
-      padding-top: 48px;
-      padding-bottom: 48px;
-    }
-
-    .hero-copy {
-      padding-right: 0;
+      padding-top: 56px;
+      padding-bottom: 56px;
     }
 
     .hero h1 {
       font-size: 40px;
     }
 
-    .hero-people {
-      margin-top: 0;
-      padding-top: 40px;
-    }
-
     .hero-photo {
-      min-height: 380px;
+      margin-top: 48px;
     }
 
-    .hero-figure {
-      font-size: 72px;
+    .hero-photo img {
+      height: 340px;
     }
   }
 
   @media (max-width: 480px) {
     .hero h1 {
-      font-size: 32px;
-    }
-
-    .hero-photo {
-      min-height: 320px;
-      border-radius: 16px;
-    }
-
-    .hero-figure {
-      font-size: 56px;
+      font-size: 30px;
     }
 
     .hero-badge {
-      font-size: 11px;
-      padding: 6px 14px;
+      font-size: 12px;
+      padding: 6px 16px 6px 6px;
+    }
+
+    .hero-photo {
+      margin-top: 40px;
+      border-radius: 16px;
+    }
+
+    .hero-photo img {
+      height: 240px;
     }
   }
 
@@ -1219,26 +1122,16 @@
 
     <section class="hero">
       <div class="container hero-inner">
-        <div class="hero-copy">
-          <h1>Preko 30 godina brige za <em>osmehe</em> u Kraljevu</h1>
-          <p>Radim opštu i dečiju stomatologiju i protetiku, u ordinaciji u centru Kraljeva. Dođite na pregled, kažem vam šta vidim i šta predlažem, a vi odlučujete.</p>
-          <div class="hero-actions">
-            <a href="#kontakt" class="btn btn-primary">Zakažite pregled</a>
-            <a href="tel:036331482" class="btn btn-outline">Pozovite nas</a>
-          </div>
-          <div class="hero-people">
-            <div class="hero-avatars"><span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="3.5"></circle><path d="M5.5 20c0-3.3 2.9-5 6.5-5s6.5 1.7 6.5 5"></path></svg></span><span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="3.5"></circle><path d="M5.5 20c0-3.3 2.9-5 6.5-5s6.5 1.7 6.5 5"></path></svg></span><span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="3.5"></circle><path d="M5.5 20c0-3.3 2.9-5 6.5-5s6.5 1.7 6.5 5"></path></svg></span><span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="3.5"></circle><path d="M5.5 20c0-3.3 2.9-5 6.5-5s6.5 1.7 6.5 5"></path></svg></span></div>
-            <p class="hero-note">Generacije iste porodice, od mlečnih zuba do protetike</p>
-          </div>
-        </div>
+        <span class="hero-badge">
+          <span class="hero-avatars"><span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="3.5"></circle><path d="M5.5 20c0-3.3 2.9-5 6.5-5s6.5 1.7 6.5 5"></path></svg></span><span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="3.5"></circle><path d="M5.5 20c0-3.3 2.9-5 6.5-5s6.5 1.7 6.5 5"></path></svg></span><span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="3.5"></circle><path d="M5.5 20c0-3.3 2.9-5 6.5-5s6.5 1.7 6.5 5"></path></svg></span><span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="3.5"></circle><path d="M5.5 20c0-3.3 2.9-5 6.5-5s6.5 1.7 6.5 5"></path></svg></span></span>
+          Generacije iste porodice u istoj ordinaciji
+        </span>
+        <h1>Preko 30 godina brige <em>za osmehe u Kraljevu</em></h1>
+        <p>Radim opštu i dečiju stomatologiju i protetiku, u ordinaciji u centru Kraljeva. Dođite na pregled, kažem vam šta vidim i šta predlažem, a vi odlučujete.</p>
+        <a href="#kontakt" class="btn btn-primary">Zakažite pregled</a>
 
         <div class="hero-photo">
           <img src="assets/StomatoloskaOrdinacijaDrVukovicKraljevo1.jpg" alt="Stolica i oprema u ordinaciji Dr Vuković u centru Kraljeva">
-          <span class="hero-badge">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>
-            Godina rada
-          </span>
-          <div class="hero-figure">30+</div>
         </div>
       </div>
     </section>
