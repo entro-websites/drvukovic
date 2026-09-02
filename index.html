@@ -237,58 +237,147 @@
 
   /* HERO */
   .hero {
-    padding-top: 72px;
+    padding-top: 24px;
     padding-bottom: 96px;
-    background-color: var(--bg-alt);
   }
 
-  .hero-inner {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 64px;
-    align-items: center;
-  }
-
-  .hero h1 {
-    font-size: 52px;
-    margin-bottom: 22px;
-  }
-
-  .hero p {
-    font-size: 18px;
-    margin-bottom: 32px;
-  }
-
-  .hero-photo {
-    border-radius: 8px;
+  .hero-media {
+    position: relative;
+    border-radius: 24px;
     overflow: hidden;
-    border: 1px solid var(--border);
+    min-height: 640px;
+    display: flex;
+    align-items: flex-end;
   }
 
-  .hero-photo img {
+  .hero-bg {
+    position: absolute;
+    inset: 0;
     width: 100%;
-    height: 380px;
+    height: 100%;
     object-fit: cover;
   }
 
+  .hero-scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(34, 31, 36, 0.82) 0%,
+      rgba(34, 31, 36, 0.55) 32%,
+      rgba(34, 31, 36, 0.18) 64%,
+      rgba(34, 31, 36, 0) 92%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 48px;
+  }
+
+  .hero h1 {
+    font-size: 60px;
+    line-height: 1.08;
+    color: #ffffff;
+    max-width: 640px;
+    margin-bottom: 28px;
+  }
+
+  .hero .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    border-radius: 999px;
+    padding: 16px 28px;
+  }
+
+  .hero .btn-primary svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .hero-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 12px 20px 12px 12px;
+    box-shadow: 0 8px 24px rgba(34, 31, 36, 0.20);
+  }
+
+  .hero-card img {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .hero-card-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.3;
+  }
+
+  .hero-card-note {
+    font-size: 13px;
+    color: var(--gray);
+    line-height: 1.3;
+  }
+
   @media (max-width: 991px) {
-    .hero-inner {
-      grid-template-columns: 1fr;
-      gap: 40px;
+    .hero-media {
+      min-height: 520px;
+    }
+
+    .hero-content {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 32px;
+      padding: 32px;
     }
 
     .hero h1 {
-      font-size: 40px;
+      font-size: 44px;
+      max-width: 100%;
     }
   }
 
   @media (max-width: 480px) {
-    .hero h1 {
-      font-size: 32px;
+    .hero {
+      padding-bottom: 64px;
     }
 
-    .hero-photo img {
-      height: 260px;
+    .hero-media {
+      min-height: 460px;
+      border-radius: 16px;
+    }
+
+    .hero-content {
+      padding: 24px;
+      gap: 24px;
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      margin-bottom: 24px;
+    }
+
+    .hero .btn-primary {
+      padding: 14px 24px;
     }
   }
 
@@ -708,14 +797,29 @@
   <main>
 
     <section class="hero">
-      <div class="container hero-inner">
-        <div>
-          <h1>Preko 30 godina brige za osmehe u Kraljevu</h1>
-          <p>Radim opštu i dečiju stomatologiju i protetiku, u ordinaciji u centru Kraljeva. Dođite na pregled, kažem vam šta vidim i šta predlažem, a vi odlučujete.</p>
-          <a href="#kontakt" class="btn btn-primary">Zakažite pregled</a>
-        </div>
-        <div class="hero-photo">
-          <img src="assets/Osmeh.jpg" alt="Zdrav i beo osmeh pacijenta nakon stomatološkog tretmana">
+      <div class="container">
+        <div class="hero-media">
+          <img class="hero-bg" src="assets/StomatoloskaOrdinacijaDrVukovicKraljevo1.jpg" alt="Stomatološka ordinacija Dr Vuković u centru Kraljeva">
+          <div class="hero-scrim"></div>
+          <div class="hero-content">
+            <div>
+              <h1>Preko 30 godina brige za osmehe u Kraljevu</h1>
+              <a href="#kontakt" class="btn btn-primary">
+                Zakažite pregled
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12h14"></path>
+                  <path d="M13 6l6 6-6 6"></path>
+                </svg>
+              </a>
+            </div>
+            <div class="hero-card">
+              <img src="assets/Vukovic.jpg" alt="">
+              <div>
+                <div class="hero-card-name">Dr Vuković</div>
+                <div class="hero-card-note">Ulica Cara Lazara 15, Kraljevo</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
